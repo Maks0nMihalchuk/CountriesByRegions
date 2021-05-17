@@ -13,13 +13,19 @@ class RegionCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "RegionCollectionViewCell"
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contentView.backgroundColor = .systemIndigo
+    }
+    
     static func nib() -> UINib {
         return UINib(nibName: "RegionCollectionViewCell", bundle: nil)
     }
     
-    func configure(with regionName: String) {
-
+    func configure(with regionName: String, isSelected: Bool) {
         regionNameLabel.text = regionName
+        
+        contentView.backgroundColor = isSelected ? .yellow : .systemIndigo
     }
 
 }

@@ -13,7 +13,9 @@ class MainViewController: UIViewController {
     
     private let regionsCollectionViewDataSource = RegionsCollectionViewDataSource()
     private let horizontalIndent: CGFloat = 20
+    private let verticalIndent: CGFloat = 10
     private let fontSize: CGFloat = 20
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -23,7 +25,10 @@ class MainViewController: UIViewController {
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        regionsCollectionViewDataSource.selectedRegion = regionsArray[indexPath.item]
+        self.collectionView.reloadData()
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -35,7 +40,7 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         let font = UIFont.boldSystemFont(ofSize: fontSize)
         let width = regionsArray[indexPath.item].stringNameRegion.widthOfString(usingFont: font)
         let height = collectionView.bounds.height
-        return CGSize(width: width + horizontalIndent, height: height - 10)
+        return CGSize(width: width + horizontalIndent, height: height - verticalIndent)
     }
 }
 
