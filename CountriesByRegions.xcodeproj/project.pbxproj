@@ -13,6 +13,11 @@
 		D737C62626529582000D7BEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737C62426529582000D7BEF /* Main.storyboard */; };
 		D737C62826529584000D7BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D737C62726529584000D7BEF /* Assets.xcassets */; };
 		D737C62B26529584000D7BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737C62926529584000D7BEF /* LaunchScreen.storyboard */; };
+		D737C63E2652ACB5000D7BEF /* RegionsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C63D2652ACB5000D7BEF /* RegionsCollectionViewDataSource.swift */; };
+		D737C6442652AD60000D7BEF /* RegionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C6422652AD60000D7BEF /* RegionCollectionViewCell.swift */; };
+		D737C6452652AD60000D7BEF /* RegionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737C6432652AD60000D7BEF /* RegionCollectionViewCell.xib */; };
+		D737C6492652B029000D7BEF /* RegionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C6482652B029000D7BEF /* RegionsModel.swift */; };
+		D737C64E2652B5EF000D7BEF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C64D2652B5EF000D7BEF /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		D737C62726529584000D7BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D737C62A26529584000D7BEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D737C62C26529584000D7BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D737C63D2652ACB5000D7BEF /* RegionsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		D737C6422652AD60000D7BEF /* RegionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCollectionViewCell.swift; sourceTree = "<group>"; };
+		D737C6432652AD60000D7BEF /* RegionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionCollectionViewCell.xib; sourceTree = "<group>"; };
+		D737C6482652B029000D7BEF /* RegionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsModel.swift; sourceTree = "<group>"; };
+		D737C64D2652B5EF000D7BEF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +68,10 @@
 			children = (
 				D737C61E26529582000D7BEF /* AppDelegate.swift */,
 				D737C62026529582000D7BEF /* SceneDelegate.swift */,
+				D737C6462652B002000D7BEF /* Models */,
 				D737C63326529AAA000D7BEF /* Screens */,
 				D737C63226529A34000D7BEF /* Resources */,
+				D737C64A2652B597000D7BEF /* Helper */,
 			);
 			path = CountriesByRegions;
 			sourceTree = "<group>";
@@ -121,6 +133,7 @@
 		D737C63926529B90000D7BEF /* RegionsCollectionViewDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				D737C63D2652ACB5000D7BEF /* RegionsCollectionViewDataSource.swift */,
 			);
 			path = RegionsCollectionViewDataSource;
 			sourceTree = "<group>";
@@ -135,6 +148,7 @@
 		D737C63B26529CC4000D7BEF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D737C63F2652AD19000D7BEF /* RegionCollectionViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +159,55 @@
 				D737C62426529582000D7BEF /* Main.storyboard */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		D737C63F2652AD19000D7BEF /* RegionCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D737C6422652AD60000D7BEF /* RegionCollectionViewCell.swift */,
+				D737C6432652AD60000D7BEF /* RegionCollectionViewCell.xib */,
+			);
+			path = RegionCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		D737C6462652B002000D7BEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D737C6472652B016000D7BEF /* RegionsModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D737C6472652B016000D7BEF /* RegionsModel */ = {
+			isa = PBXGroup;
+			children = (
+				D737C6482652B029000D7BEF /* RegionsModel.swift */,
+			);
+			path = RegionsModel;
+			sourceTree = "<group>";
+		};
+		D737C64A2652B597000D7BEF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				D737C64B2652B5C7000D7BEF /* Extension */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D737C64B2652B5C7000D7BEF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D737C64C2652B5D4000D7BEF /* String */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D737C64C2652B5D4000D7BEF /* String */ = {
+			isa = PBXGroup;
+			children = (
+				D737C64D2652B5EF000D7BEF /* StringExtension.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D737C6452652AD60000D7BEF /* RegionCollectionViewCell.xib in Resources */,
 				D737C62B26529584000D7BEF /* LaunchScreen.storyboard in Resources */,
 				D737C62826529584000D7BEF /* Assets.xcassets in Resources */,
 				D737C62626529582000D7BEF /* Main.storyboard in Resources */,
@@ -218,8 +282,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D737C62326529582000D7BEF /* MainViewController.swift in Sources */,
+				D737C64E2652B5EF000D7BEF /* StringExtension.swift in Sources */,
+				D737C6492652B029000D7BEF /* RegionsModel.swift in Sources */,
+				D737C63E2652ACB5000D7BEF /* RegionsCollectionViewDataSource.swift in Sources */,
 				D737C61F26529582000D7BEF /* AppDelegate.swift in Sources */,
 				D737C62126529582000D7BEF /* SceneDelegate.swift in Sources */,
+				D737C6442652AD60000D7BEF /* RegionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
