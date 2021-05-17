@@ -34,20 +34,27 @@
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="d4u-Eg-loP">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemOrangeColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SVA-gq-MW6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GuW-zS-AkJ"/>
+                            <constraint firstItem="d4u-Eg-loP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oe8-Mg-qR0"/>
                             <constraint firstItem="TwX-HB-CMt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="R83-vJ-Nyn"/>
                             <constraint firstItem="TwX-HB-CMt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ahe-Er-ZGI"/>
                             <constraint firstItem="TwX-HB-CMt" firstAttribute="top" secondItem="SVA-gq-MW6" secondAttribute="bottom" id="c9z-un-REM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SVA-gq-MW6" secondAttribute="trailing" id="gZI-jn-gWG"/>
+                            <constraint firstItem="d4u-Eg-loP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oFj-qY-CSK"/>
                             <constraint firstItem="TwX-HB-CMt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pRk-gR-nI8"/>
                             <constraint firstItem="SVA-gq-MW6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="u5i-me-n9E"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="d4u-Eg-loP" id="vMN-Lo-T7S"/>
                         <outlet property="collectionView" destination="SVA-gq-MW6" id="EZo-MN-ULp"/>
                         <outlet property="tableView" destination="TwX-HB-CMt" id="j98-Th-JbF"/>
                     </connections>

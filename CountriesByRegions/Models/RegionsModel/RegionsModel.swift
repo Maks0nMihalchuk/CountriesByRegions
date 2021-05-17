@@ -33,5 +33,5 @@ enum RegionsModel {
         }
     }
 }
-
+var currentRegion: RegionsModel = .all
 let regionsArray: [RegionsModel] = [.all, .africa, .americas, .europe, .asia, .oceania]

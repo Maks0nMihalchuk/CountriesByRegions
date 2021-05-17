@@ -9,8 +9,12 @@ import UIKit
 
 class CountryTableViewDataSource: NSObject, UITableViewDataSource {
     
+    private let countOffset = 1
+
+    var countryNames = [CountryModel]()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return countryNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -19,7 +23,9 @@ class CountryTableViewDataSource: NSObject, UITableViewDataSource {
 
         guard let countryCell = cell else { return UITableViewCell() }
         
-        countryCell.configure(with: "\(indexPath.row).")
+        let count = indexPath.row + countOffset
+        
+        countryCell.configure(with: "\(count). \(countryNames[indexPath.row].name)")
         
         return countryCell
     }
