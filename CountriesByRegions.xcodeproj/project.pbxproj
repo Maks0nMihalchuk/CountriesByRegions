@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D737C61F26529582000D7BEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C61E26529582000D7BEF /* AppDelegate.swift */; };
 		D737C62126529582000D7BEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C62026529582000D7BEF /* SceneDelegate.swift */; };
-		D737C62326529582000D7BEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C62226529582000D7BEF /* ViewController.swift */; };
+		D737C62326529582000D7BEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C62226529582000D7BEF /* MainViewController.swift */; };
 		D737C62626529582000D7BEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737C62426529582000D7BEF /* Main.storyboard */; };
 		D737C62826529584000D7BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D737C62726529584000D7BEF /* Assets.xcassets */; };
 		D737C62B26529584000D7BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D737C62926529584000D7BEF /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		D737C61B26529581000D7BEF /* CountriesByRegions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountriesByRegions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D737C61E26529582000D7BEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D737C62026529582000D7BEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D737C62226529582000D7BEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D737C62226529582000D7BEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D737C62526529582000D7BEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D737C62726529584000D7BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D737C62A26529584000D7BEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,13 +58,93 @@
 			children = (
 				D737C61E26529582000D7BEF /* AppDelegate.swift */,
 				D737C62026529582000D7BEF /* SceneDelegate.swift */,
-				D737C62226529582000D7BEF /* ViewController.swift */,
-				D737C62426529582000D7BEF /* Main.storyboard */,
+				D737C63326529AAA000D7BEF /* Screens */,
+				D737C63226529A34000D7BEF /* Resources */,
+			);
+			path = CountriesByRegions;
+			sourceTree = "<group>";
+		};
+		D737C63226529A34000D7BEF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				D737C62726529584000D7BEF /* Assets.xcassets */,
 				D737C62926529584000D7BEF /* LaunchScreen.storyboard */,
 				D737C62C26529584000D7BEF /* Info.plist */,
 			);
-			path = CountriesByRegions;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D737C63326529AAA000D7BEF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D737C63C26529D65000D7BEF /* UI */,
+				D737C63426529ABB000D7BEF /* CountriesByRegionsScreen */,
+				D737C63526529AD4000D7BEF /* DetailCountryScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D737C63426529ABB000D7BEF /* CountriesByRegionsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D737C63726529B56000D7BEF /* Controller */,
+				D737C63B26529CC4000D7BEF /* Views */,
+				D737C63826529B61000D7BEF /* DataSources */,
+			);
+			path = CountriesByRegionsScreen;
+			sourceTree = "<group>";
+		};
+		D737C63526529AD4000D7BEF /* DetailCountryScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailCountryScreen;
+			sourceTree = "<group>";
+		};
+		D737C63726529B56000D7BEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D737C62226529582000D7BEF /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D737C63826529B61000D7BEF /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				D737C63926529B90000D7BEF /* RegionsCollectionViewDataSource */,
+				D737C63A26529BC5000D7BEF /* CountriesTableViewDataSource */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		D737C63926529B90000D7BEF /* RegionsCollectionViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RegionsCollectionViewDataSource;
+			sourceTree = "<group>";
+		};
+		D737C63A26529BC5000D7BEF /* CountriesTableViewDataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CountriesTableViewDataSource;
+			sourceTree = "<group>";
+		};
+		D737C63B26529CC4000D7BEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D737C63C26529D65000D7BEF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D737C62426529582000D7BEF /* Main.storyboard */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D737C62326529582000D7BEF /* ViewController.swift in Sources */,
+				D737C62326529582000D7BEF /* MainViewController.swift in Sources */,
 				D737C61F26529582000D7BEF /* AppDelegate.swift in Sources */,
 				D737C62126529582000D7BEF /* SceneDelegate.swift in Sources */,
 			);
@@ -287,7 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CountriesByRegions/Info.plist;
+				INFOPLIST_FILE = CountriesByRegions/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +385,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CountriesByRegions/Info.plist;
+				INFOPLIST_FILE = CountriesByRegions/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
