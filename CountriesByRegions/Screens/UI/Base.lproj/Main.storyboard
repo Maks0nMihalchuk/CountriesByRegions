@@ -30,22 +30,31 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TwX-HB-CMt">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="SVA-gq-MW6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GuW-zS-AkJ"/>
+                            <constraint firstItem="TwX-HB-CMt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="R83-vJ-Nyn"/>
+                            <constraint firstItem="TwX-HB-CMt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ahe-Er-ZGI"/>
+                            <constraint firstItem="TwX-HB-CMt" firstAttribute="top" secondItem="SVA-gq-MW6" secondAttribute="bottom" id="c9z-un-REM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SVA-gq-MW6" secondAttribute="trailing" id="gZI-jn-gWG"/>
+                            <constraint firstItem="TwX-HB-CMt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pRk-gR-nI8"/>
                             <constraint firstItem="SVA-gq-MW6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="u5i-me-n9E"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="SVA-gq-MW6" id="EZo-MN-ULp"/>
+                        <outlet property="tableView" destination="TwX-HB-CMt" id="j98-Th-JbF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="96"/>
+            <point key="canvasLocation" x="73.913043478260875" y="95.758928571428569"/>
         </scene>
     </scenes>
     <resources>

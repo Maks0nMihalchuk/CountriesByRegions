@@ -10,8 +10,10 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let regionsCollectionViewDataSource = RegionsCollectionViewDataSource()
+    private let countryTableViewDataSource = CountryTableViewDataSource()
     private let horizontalIndent: CGFloat = 20
     private let verticalIndent: CGFloat = 10
     private let fontSize: CGFloat = 20
@@ -19,6 +21,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupTableView()
     }
 }
 
@@ -44,6 +47,18 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+}
+
 // MARK: - setup view
 private extension MainViewController {
     
@@ -52,5 +67,12 @@ private extension MainViewController {
         collectionView.dataSource = regionsCollectionViewDataSource
         collectionView.register(RegionCollectionViewCell.nib(),
                                 forCellWithReuseIdentifier: RegionCollectionViewCell.identifier)
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = countryTableViewDataSource
+        tableView.register(CountryTableViewCell.nib(),
+                           forCellReuseIdentifier: CountryTableViewCell.identifier)
     }
 }

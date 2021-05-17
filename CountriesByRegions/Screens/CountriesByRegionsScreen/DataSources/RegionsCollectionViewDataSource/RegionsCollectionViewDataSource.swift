@@ -19,7 +19,7 @@ class RegionsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RegionCollectionViewCell.identifier,
                                                             for: indexPath) as? RegionCollectionViewCell
         
-        guard let regionCell = cell else { return UICollectionViewCell()}
+        guard let regionCell = cell else { return UICollectionViewCell() }
 
         let regionName = regionsArray[indexPath.item].stringNameRegion
         let isSelected = selectedRegion == regionsArray[indexPath.item]

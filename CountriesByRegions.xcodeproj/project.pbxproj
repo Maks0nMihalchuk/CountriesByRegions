@@ -18,6 +18,9 @@
 		D737C6452652AD60000D7BEF /* RegionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737C6432652AD60000D7BEF /* RegionCollectionViewCell.xib */; };
 		D737C6492652B029000D7BEF /* RegionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C6482652B029000D7BEF /* RegionsModel.swift */; };
 		D737C64E2652B5EF000D7BEF /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C64D2652B5EF000D7BEF /* StringExtension.swift */; };
+		D737C6522652D3D6000D7BEF /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C6502652D3D6000D7BEF /* CountryTableViewCell.swift */; };
+		D737C6532652D3D6000D7BEF /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D737C6512652D3D6000D7BEF /* CountryTableViewCell.xib */; };
+		D737C6552652D474000D7BEF /* CountryTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C6542652D474000D7BEF /* CountryTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		D737C6432652AD60000D7BEF /* RegionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionCollectionViewCell.xib; sourceTree = "<group>"; };
 		D737C6482652B029000D7BEF /* RegionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsModel.swift; sourceTree = "<group>"; };
 		D737C64D2652B5EF000D7BEF /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		D737C6502652D3D6000D7BEF /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		D737C6512652D3D6000D7BEF /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
+		D737C6542652D474000D7BEF /* CountryTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 		D737C63A26529BC5000D7BEF /* CountriesTableViewDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				D737C6542652D474000D7BEF /* CountryTableViewDataSource.swift */,
 			);
 			path = CountriesTableViewDataSource;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D737C63F2652AD19000D7BEF /* RegionCollectionViewCell */,
+				D737C64F2652D3A2000D7BEF /* CountryTableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +216,15 @@
 				D737C64D2652B5EF000D7BEF /* StringExtension.swift */,
 			);
 			path = String;
+			sourceTree = "<group>";
+		};
+		D737C64F2652D3A2000D7BEF /* CountryTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D737C6502652D3D6000D7BEF /* CountryTableViewCell.swift */,
+				D737C6512652D3D6000D7BEF /* CountryTableViewCell.xib */,
+			);
+			path = CountryTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +288,7 @@
 				D737C62B26529584000D7BEF /* LaunchScreen.storyboard in Resources */,
 				D737C62826529584000D7BEF /* Assets.xcassets in Resources */,
 				D737C62626529582000D7BEF /* Main.storyboard in Resources */,
+				D737C6532652D3D6000D7BEF /* CountryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +303,8 @@
 				D737C64E2652B5EF000D7BEF /* StringExtension.swift in Sources */,
 				D737C6492652B029000D7BEF /* RegionsModel.swift in Sources */,
 				D737C63E2652ACB5000D7BEF /* RegionsCollectionViewDataSource.swift in Sources */,
+				D737C6522652D3D6000D7BEF /* CountryTableViewCell.swift in Sources */,
+				D737C6552652D474000D7BEF /* CountryTableViewDataSource.swift in Sources */,
 				D737C61F26529582000D7BEF /* AppDelegate.swift in Sources */,
 				D737C62126529582000D7BEF /* SceneDelegate.swift in Sources */,
 				D737C6442652AD60000D7BEF /* RegionCollectionViewCell.swift in Sources */,
