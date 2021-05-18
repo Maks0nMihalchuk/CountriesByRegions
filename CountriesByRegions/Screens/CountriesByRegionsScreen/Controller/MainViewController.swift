@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
+    private let main = UIStoryboard(name: "Main", bundle: nil)
     private let regionsCollectionViewDataSource = RegionsCollectionViewDataSource()
     private let countryTableViewDataSource = CountryTableViewDataSource()
     private let networkManager = NetworkManager.shared
@@ -32,7 +33,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupTableView()
+        setupNavigationBar()
         loadData(by: currentRegion)
+        //setupNavigationBar()
     }
 }
 
@@ -41,6 +44,7 @@ extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentRegion = regionsArray[indexPath.item]
+        title = currentRegion.stringNameRegion
         loadData(by: currentRegion)
         self.collectionView.reloadData()
     }
@@ -63,11 +67,30 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
+        let detailViewController = setupDetailViewController()
+        
+        guard
+            let viewController = detailViewController,
+            let name = countryNames?[indexPath.row].name
+        else { return }
+        
+        viewController.countryName = name
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+// MRK: - setup DetailViewController
+private extension MainViewController {
+    
+    func setupDetailViewController() -> DetailViewController? {
+        return main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
     }
 }
 
@@ -82,10 +105,21 @@ private extension MainViewController {
     }
     
     func setupTableView() {
+        tableView.contentInset.bottom = 16
+        tableView.contentInsetAdjustmentBehavior = .never
         tableView.delegate = self
         tableView.dataSource = countryTableViewDataSource
         tableView.register(CountryTableViewCell.nib(),
                            forCellReuseIdentifier: CountryTableViewCell.identifier)
+    }
+    
+    func setupNavigationBar() {
+        let navBar = navigationController?.navigationBar
+        title = currentRegion.stringNameRegion
+        navBar?.setBackgroundImage(UIImage(), for: .default)
+        navBar?.shadowImage = UIImage()
+        navBar?.titleTextAttributes = [.foregroundColor: UIColor.black,
+                                       .font: UIFont.boldSystemFont(ofSize: 25)]
     }
 }
 
