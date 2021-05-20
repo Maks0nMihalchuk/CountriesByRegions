@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     private let horizontalIndent: CGFloat = 20
     private let verticalIndent: CGFloat = 10
     private let fontSize: CGFloat = 20
+    private let defaultIndexPath = IndexPath(item: 0, section: 0)
     private var countryNames: [CountryModel]? {
         didSet {
             guard let requireCountryModel = countryNames else { return }
@@ -35,7 +36,6 @@ class MainViewController: UIViewController {
         setupTableView()
         setupNavigationBar()
         loadData(by: currentRegion)
-        //setupNavigationBar()
     }
 }
 
@@ -46,6 +46,7 @@ extension MainViewController: UICollectionViewDelegate {
         currentRegion = regionsArray[indexPath.item]
         title = currentRegion.stringNameRegion
         loadData(by: currentRegion)
+        tableView.scrollToRow(at: defaultIndexPath, at: .top, animated: false)
         self.collectionView.reloadData()
     }
 }
