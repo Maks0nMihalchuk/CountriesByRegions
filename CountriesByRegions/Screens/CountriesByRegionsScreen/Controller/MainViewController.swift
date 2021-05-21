@@ -148,7 +148,6 @@ private extension MainViewController {
                 switch result {
                 
                 case .success(let countryNames):
-                    print("Load success")
                     self.countryNames = countryNames
                     self.tableView.scrollToRow(at: self.defaultTableViewIndexPath, at: .top, animated: false)
                 case .failure(let error):
