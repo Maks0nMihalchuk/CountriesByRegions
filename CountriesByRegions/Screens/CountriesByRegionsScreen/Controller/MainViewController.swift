@@ -20,12 +20,14 @@ class MainViewController: UIViewController {
     private let horizontalIndent: CGFloat = 20
     private let verticalIndent: CGFloat = 10
     private let fontSize: CGFloat = 20
-    private let defaultIndexPath = IndexPath(item: 0, section: 0)
+    private let defaultTableViewIndexPath = IndexPath(item: 0, section: 0)
+    private var collectionViewIndex = 0
     private var countryNames: [CountryModel]? {
         didSet {
             guard let requireCountryModel = countryNames else { return }
             
-            countryTableViewDataSource.countryNames = requireCountryModel
+            arrayOfRegionsAndCountriesOfRegions[collectionViewIndex].arrayOfCountries = requireCountryModel
+            countryTableViewDataSource.countryNames = arrayOfRegionsAndCountriesOfRegions[collectionViewIndex].arrayOfCountries
             tableView.reloadData()
         }
     }
@@ -43,9 +45,17 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        currentRegion = regionsArray[indexPath.item]
+        currentRegion = arrayOfRegionsAndCountriesOfRegions[indexPath.item].regionName
+        collectionViewIndex = indexPath.item
         title = currentRegion.stringNameRegion
-        loadData(by: currentRegion)
+        
+        if arrayOfRegionsAndCountriesOfRegions[indexPath.item].arrayOfCountries.isEmpty {
+            loadData(by: currentRegion)
+        } else {
+            countryTableViewDataSource.countryNames = arrayOfRegionsAndCountriesOfRegions[indexPath.item].arrayOfCountries
+            tableView.reloadData()
+        }
+        
         self.collectionView.reloadData()
     }
 }
@@ -57,7 +67,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let font = UIFont.boldSystemFont(ofSize: fontSize)
-        let width = regionsArray[indexPath.item].stringNameRegion.widthOfString(usingFont: font)
+        let cellText = arrayOfRegionsAndCountriesOfRegions[indexPath.item].regionName.stringNameRegion
+        let width =  cellText.widthOfString(usingFont: font)
         let height = collectionView.bounds.height
         return CGSize(width: width + horizontalIndent, height: height - verticalIndent)
     }
@@ -137,8 +148,9 @@ private extension MainViewController {
                 switch result {
                 
                 case .success(let countryNames):
+                    print("Load success")
                     self.countryNames = countryNames
-                    self.tableView.scrollToRow(at: self.defaultIndexPath, at: .top, animated: false)
+                    self.tableView.scrollToRow(at: self.defaultTableViewIndexPath, at: .top, animated: false)
                 case .failure(let error):
                     self.setupAndShowErrorAlert(with: error.errorDescription)
                 }

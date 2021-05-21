@@ -10,7 +10,7 @@ import UIKit
 class RegionsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return regionsArray.count
+        return arrayOfRegionsAndCountriesOfRegions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -19,8 +19,8 @@ class RegionsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
         guard let regionCell = cell else { return UICollectionViewCell() }
 
-        let regionName = regionsArray[indexPath.item].stringNameRegion
-        let isSelected = currentRegion == regionsArray[indexPath.item]
+        let regionName = arrayOfRegionsAndCountriesOfRegions[indexPath.item].regionName.stringNameRegion
+        let isSelected = currentRegion == arrayOfRegionsAndCountriesOfRegions[indexPath.item].regionName
         regionCell.configure(with: regionName, isSelected: isSelected)
         
         return regionCell

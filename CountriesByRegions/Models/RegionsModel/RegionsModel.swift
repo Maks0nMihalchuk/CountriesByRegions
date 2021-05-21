@@ -33,5 +33,16 @@ enum RegionsModel {
         }
     }
 }
+
+struct Region {
+    var regionName: RegionsModel
+    var arrayOfCountries: [CountryModel]
+}
+
+var arrayOfRegionsAndCountriesOfRegions = [Region(regionName: .all, arrayOfCountries: [CountryModel]()),
+             Region(regionName: .africa, arrayOfCountries: [CountryModel]()),
+             Region(regionName: .americas, arrayOfCountries: [CountryModel]()),
+             Region(regionName: .europe, arrayOfCountries: [CountryModel]()),
+             Region(regionName: .asia, arrayOfCountries: [CountryModel]()),
+             Region(regionName: .oceania, arrayOfCountries: [CountryModel]())]
 var currentRegion: RegionsModel = .all
-let regionsArray: [RegionsModel] = [.all, .africa, .americas, .europe, .asia, .oceania]
