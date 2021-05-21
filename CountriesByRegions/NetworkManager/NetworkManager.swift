@@ -10,15 +10,25 @@ import Foundation
 class NetworkManager {
     
     static var shared = NetworkManager()
-    var mapper: Mapper
+    private var reachability = try? Reachability()
+    private var mapper: Mapper
     
     init() {
         mapper = Mapper()
+        subscribeOnNetworkCheckNotifications()
     }
-    
-    
+
+    deinit {
+        unsubscribeOnNetworkCheckNotifications()
+    }
+
     func getCountryNames(by region: RegionsModel,
                          completion: @escaping (Result<[CountryModel], NetworkError>) -> Void) {
+        guard reachability?.connection == .cellular || reachability?.connection == .wifi else {
+            completion(.failure(.invalidNetworkConnection))
+            return
+        }
+        
         guard let url = getURLToGetCountries(by: region) else {
             completion(.failure(.invalidURL))
             return
@@ -46,6 +56,11 @@ class NetworkManager {
     
     func getDetailedInfoAboutCountry(by countryName: String,
                                      completion: @escaping (Result<DetailInfoModel?, NetworkError>) -> Void) {
+        guard reachability?.connection == .cellular || reachability?.connection == .wifi else {
+            completion(.failure(.invalidNetworkConnection))
+            return
+        }
+        
         guard let url = getURLToGetDetailInfo(by: countryName) else {
             completion(.failure(.invalidURL))
             return
@@ -108,5 +123,39 @@ private extension NetworkManager {
         session.dataTask(with: request) { data, _, error in
             completion(data, error)
         }.resume()
+    }
+}
+
+// MARK: - work with Reachability
+private extension NetworkManager {
+    
+    func subscribeOnNetworkCheckNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reachabilityChanged(note:)),
+                                               name: .reachabilityChanged,
+                                               object: reachability)
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
+    
+    func unsubscribeOnNetworkCheckNotifications() {
+        reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .reachabilityChanged,
+                                                  object: reachability)
+    }
+    
+    @objc func reachabilityChanged(note: Notification) {
+        let reachability = note.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi, .cellular:
+            print("Connection ")
+        case .unavailable, .none:
+            print("No Connection")
+        }
     }
 }

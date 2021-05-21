@@ -46,7 +46,6 @@ extension MainViewController: UICollectionViewDelegate {
         currentRegion = regionsArray[indexPath.item]
         title = currentRegion.stringNameRegion
         loadData(by: currentRegion)
-        tableView.scrollToRow(at: defaultIndexPath, at: .top, animated: false)
         self.collectionView.reloadData()
     }
 }
@@ -87,7 +86,7 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
-// MRK: - setup DetailViewController
+// MARK: - setup DetailViewController
 private extension MainViewController {
     
     func setupDetailViewController() -> DetailViewController? {
@@ -139,6 +138,7 @@ private extension MainViewController {
                 
                 case .success(let countryNames):
                     self.countryNames = countryNames
+                    self.tableView.scrollToRow(at: self.defaultIndexPath, at: .top, animated: false)
                 case .failure(let error):
                     self.setupAndShowErrorAlert(with: error.errorDescription)
                 }

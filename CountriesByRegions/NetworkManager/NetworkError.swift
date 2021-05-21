@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case invalidNetworkConnection
     case invalidURL
     case invalidResponse
     case invalidData 
@@ -15,6 +16,8 @@ enum NetworkError: Error {
     var errorDescription: String {
         switch self {
         
+        case .invalidNetworkConnection:
+            return "Please check your network connection"
         case .invalidURL:
             return "Error in url."
         case .invalidResponse:

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D71F9A992657B75300298763 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F9A982657B75300298763 /* Reachability.swift */; };
 		D737C61F26529582000D7BEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C61E26529582000D7BEF /* AppDelegate.swift */; };
 		D737C62126529582000D7BEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C62026529582000D7BEF /* SceneDelegate.swift */; };
 		D737C62326529582000D7BEF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737C62226529582000D7BEF /* MainViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D71F9A982657B75300298763 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		D737C61B26529581000D7BEF /* CountriesByRegions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountriesByRegions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D737C61E26529582000D7BEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D737C62026529582000D7BEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		D737C64A2652B597000D7BEF /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				D737C67A2656E5F1000D7BEF /* NetworkCheck */,
 				D737C66F26540436000D7BEF /* Mapping */,
 				D737C64B2652B5C7000D7BEF /* Extension */,
 			);
@@ -306,6 +309,14 @@
 				D737C67026540448000D7BEF /* Mapper.swift */,
 			);
 			path = Mapping;
+			sourceTree = "<group>";
+		};
+		D737C67A2656E5F1000D7BEF /* NetworkCheck */ = {
+			isa = PBXGroup;
+			children = (
+				D71F9A982657B75300298763 /* Reachability.swift */,
+			);
+			path = NetworkCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +410,7 @@
 				D737C62126529582000D7BEF /* SceneDelegate.swift in Sources */,
 				D737C66D265401BA000D7BEF /* CountryDetailInfoTableViewCell.swift in Sources */,
 				D737C6442652AD60000D7BEF /* RegionCollectionViewCell.swift in Sources */,
+				D71F9A992657B75300298763 /* Reachability.swift in Sources */,
 				D737C6662653D4D0000D7BEF /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
